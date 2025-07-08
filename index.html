@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asmiya A | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Asmiya A</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="home-section">
+    <canvas id="webAnimationCanvas"></canvas>
+    <div class="content">
+      <h1 class="name">Asmiya A</h1>
+      <p class="headline">
+        ECE Student | <span class="highlight">Impact-Driven Tech Explorer</span> | HTML5, App, Embedded & IoT Enthusiast | Aspiring Entrepreneur
+      </p>
+      <p class="tagline">From HTML to hardware, I build with heart.</p>
+      <a href="about.html" class="btn">About Me →</a>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Script initialized'); // Debug log
+      const canvas = document.getElementById('webAnimationCanvas');
+      if (!canvas) {
+        console.error('Canvas element not found!');
+        return;
+      }
+      const ctx = canvas.getContext('2d');
+      if (!ctx) {
+        console.error('Canvas context not supported!');
+        return;
+      }
+
+      let width, height;
+      let particles = [];
+      const numParticles = 80; // Slightly increased for a bit more density
+      const maxDistance = 120; // Keep the cleaner look
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        particles = [];
+        initParticles();
+      }
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 2; // Faster movement
+          this.vy = (Math.random() - 0.5) * 2;
+          this.radius = Math.random() * 3 + 2; // Larger particles (2–5px)
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 69, 0, 0.95)'; // Vivid orange (#ff4500)
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        for (let i = 0; i < numParticles; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < numParticles; i++) {
+          const p1 = particles[i];
+          p1.update();
+          p1.draw();
+
+          for (let j = i + 1; j < numParticles; j++) {
+            const p2 = particles[j];
+            const dist = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+
+            if (dist < maxDistance) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(255, 165, 0, ${0.95 - (dist / maxDistance)})`; // Bright orange lines (#ffa500)
+              ctx.lineWidth = 1.5; // Thicker lines
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+      animate();
+    });
+  </script>
+</body>
+</html>

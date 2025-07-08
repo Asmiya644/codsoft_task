@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Asmiya A</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Asmiya A</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="contact-section fade-in">
+    <h1>Contact Me</h1>
+    <form class="contact-form slide-in-up" id="contactForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+    <div class="contact-info">
+      <p><b>Email:</b> asmiya@example.com</p>
+      <p><b>LinkedIn:</b> <a href="#" target="_blank">linkedin.com/in/asmiyaa</a></p>
+      <p><b>Location:</b> Chennai, India</p>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.contact-section').classList.add('visible');
+      const form = document.getElementById('contactForm');
+      const msg = document.getElementById('formMessage');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        msg.textContent = 'Thank you for reaching out! (Demo only)';
+        msg.style.color = '#ff4500';
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

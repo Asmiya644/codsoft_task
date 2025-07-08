@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Asmiya A</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Asmiya A</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="projects-section fade-in">
+    <h1>My Projects</h1>
+    <div class="project-filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+      <button class="filter-btn" data-filter="embedded">Embedded</button>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card fade-up" data-category="web">
+        <h2>Portfolio Website</h2>
+        <p>Personal portfolio built with HTML, CSS, and JavaScript, featuring interactive animations and responsive design.</p>
+        <a href="#" class="project-link">View Demo</a>
+      </div>
+      <div class="project-card fade-up" data-category="iot">
+        <h2>Smart Home System</h2>
+        <p>IoT-based home automation using ESP32, sensors, and a web dashboard for real-time monitoring and control.</p>
+        <a href="#" class="project-link">View Details</a>
+      </div>
+      <div class="project-card fade-up" data-category="embedded">
+        <h2>Wearable Health Monitor</h2>
+        <p>Embedded system for tracking vital signs, built with Arduino and Bluetooth connectivity for mobile integration.</p>
+        <a href="#" class="project-link">View Details</a>
+      </div>
+      <div class="project-card fade-up" data-category="web">
+        <h2>Student Community Platform</h2>
+        <p>Developed a collaborative platform for students to share resources, events, and connect with mentors. Built with React and Firebase.</p>
+        <a href="#" class="project-link">View Demo</a>
+      </div>
+      <div class="project-card fade-up" data-category="embedded">
+        <h2>Gesture-Controlled Robot</h2>
+        <p>Designed and programmed a robot that responds to hand gestures using embedded C and accelerometer sensors.</p>
+        <a href="#" class="project-link">View Details</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.project-card');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+          cards.forEach(card => {
+            card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
+          });
+        });
+      });
+      document.querySelector('.projects-section').classList.add('visible');
+    });
+  </script>
+</body>
+</html>

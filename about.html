@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Asmiya A</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Asmiya A</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="about-main">
+    <section class="about-hero-glass">
+      <div class="about-hero-animated-bg">
+        <span class="about-hero-shape shape1"></span>
+        <span class="about-hero-shape shape2"></span>
+        <span class="about-hero-shape shape3"></span>
+      </div>
+      <div class="about-hero-glass-content">
+        <img src="xsmiyx.jpg" alt="Profile" class="about-profile-pic-glass">
+        <div class="about-hero-glass-text">
+          <h1>Hey, I'm <span class="about-highlight">Asmiya A</span></h1>
+          <p class="about-role">Engineer • Tech Explorer • Innovator</p>
+          <div class="about-socials">
+            <a href="#" title="LinkedIn" class="about-social-link"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn"></a>
+            <a href="#" title="GitHub" class="about-social-link"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about-split">
+      <div class="about-timeline-vertical">
+        <h2>Journey</h2>
+        <ul>
+          <li><span class="about-timeline-dot"></span><span class="about-timeline-year">2024–2028</span> B.Tech in ECE, SJIT</li>
+          <li><span class="about-timeline-dot"></span><span class="about-timeline-year">2025</span> Developed a light sensor based IOT project.</li>
+          <li><span class="about-timeline-dot"></span><span class="about-timeline-year">2025</span> Improving a composer as a Dancer and Singer</li>
+        </ul>
+      </div>
+      <div class="about-bio-card">
+        <h2>About Me</h2>
+        <p>Curious, creative, and driven by impact. I’m an ECE student passionate about building tech that matters. From web apps to robots, I love turning ideas into reality and collaborating with inspiring minds.</p>
+        <div class="about-bio-tags">
+          <span>Web Dev</span><span>IoT</span><span>Embedded</span><span>Startups</span><span>Blogging</span><span>Volunteering</span>
+        </div>
+      </div>
+    </section>
+    <section class="about-cards-creative">
+      <div class="about-card-creative about-achievements-creative">
+        <h3>🏆 Achievements</h3>
+        <ul>
+          <li>Winner, College Hackathon 2025</li>
+          <li>Top 10, National IoT Challenge 2025</li>
+          <li>Published in IEEE Student Magazine</li>
+        </ul>
+      </div>
+      <div class="about-card-creative about-fun-facts-creative">
+        <h3>✨ Fun Facts</h3>
+        <ul>
+          <li>Can code and cook at the same time!</li>
+          <li>Built a robot that delivers snacks.</li>
+          <li>Loves singing and listening to songs.</li>
+        </ul>
+      </div>
+      <div class="about-card-creative about-values-carousel">
+        <h3>💡 My Values</h3>
+        <div class="about-carousel" id="about-carousel">
+          <div class="about-carousel-item active">Innovation</div>
+          <div class="about-carousel-item">Collaboration</div>
+          <div class="about-carousel-item">Empathy</div>
+          <div class="about-carousel-item">Growth</div>
+        </div>
+        <div class="about-carousel-controls">
+          <button class="about-carousel-prev">&#8592;</button>
+          <button class="about-carousel-next">&#8594;</button>
+        </div>
+      </div>
+    </section>
+    <section class="about-quote">
+      <blockquote>“Creativity is intelligence having fun.”<br><span>– Albert Einstein</span></blockquote>
+    </section>
+    <section class="about-cta">
+      <div class="about-cta-content">
+        <h2>Let's Connect!</h2>
+        <p>Open to new opportunities, collaborations, and conversations. Reach out if you’d like to work together or just say hi!</p>
+        <a href="contact.html" class="about-cta-btn">Contact Me</a>
+      </div>
+    </section>
+  </main>
+  <footer class="about-footer">
+    <p>&copy; 2025 Asmiya A. All rights reserved.</p>
+  </footer>
+  <script>
+    // Hero animation
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.about-hero-glass').classList.add('visible');
+      setTimeout(() => {
+        document.querySelector('.about-profile-pic-glass').classList.add('visible');
+        document.querySelector('.about-hero-glass-text').classList.add('visible');
+      }, 200);
+    });
+    // Carousel logic
+    const carousel = document.getElementById('about-carousel');
+    const items = carousel.querySelectorAll('.about-carousel-item');
+    let current = 0;
+    function showItem(idx) {
+      items.forEach((el, i) => el.classList.toggle('active', i === idx));
+    }
+    document.querySelector('.about-carousel-prev').onclick = () => {
+      current = (current - 1 + items.length) % items.length;
+      showItem(current);
+    };
+    document.querySelector('.about-carousel-next').onclick = () => {
+      current = (current + 1) % items.length;
+      showItem(current);
+    };
+  </script>
+</body>
+</html>

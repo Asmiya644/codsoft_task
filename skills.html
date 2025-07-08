@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Asmiya A</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Asmiya A</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="skills-section fade-in">
+    <h1>My Skills</h1>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+        <span>HTML5</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+        <span>CSS3</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+        <span>JavaScript</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="Embedded C">
+        <span>Embedded C</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="IoT & Sensors">
+        <span>IoT & Sensors</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="App Development">
+        <span>App Development</span>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+    <div class="soft-skills-section">
+      <h2>Soft Skills</h2>
+      <div class="soft-skills-grid">
+        <div class="soft-skill"><img src="https://img.icons8.com/ios-filled/50/ffa500/leadership.png" alt="Leadership"><span>Team Leadership</span></div>
+        <div class="soft-skill"><img src="https://img.icons8.com/ios-filled/50/ffa500/microphone.png" alt="Public Speaking"><span>Public Speaking</span></div>
+        <div class="soft-skill"><img src="https://img.icons8.com/ios-filled/50/ffa500/idea.png" alt="Problem Solving"><span>Problem Solving</span></div>
+        <div class="soft-skill"><img src="https://img.icons8.com/ios-filled/50/ffa500/time.png" alt="Time Management"><span>Time Management</span></div>
+        <div class="soft-skill"><img src="https://img.icons8.com/ios-filled/50/ffa500/paint-palette.png" alt="Creativity"><span>Creativity</span></div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.skills-section').classList.add('visible');
+      setTimeout(() => {
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+          bar.style.transition = 'width 1.2s cubic-bezier(.77,0,.18,1)';
+        });
+      }, 200);
+    });
+  </script>
+</body>
+</html>
